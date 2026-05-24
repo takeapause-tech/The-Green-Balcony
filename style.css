@@ -206,5 +206,8 @@ main {
     color: #777;
     cursor: pointer;
     text-decoration: underline;
+  .selected {
+  background-color: var(--terracotta);
+}
     margin-top: 1em;
 }
