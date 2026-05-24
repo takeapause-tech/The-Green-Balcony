@@ -209,5 +209,47 @@ main {
   .selected {
   background-color: var(--terracotta);
 }
+
+  :root {
+  --charcoal: #2d2d2d;
+  --terracotta: #d2691e;
+  --yellow: #f4d03f;
+  --bg-color: #fdfaf6;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--charcoal);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+}
+
+nav {
+  background-color: var(--charcoal);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+nav a {
+  color: var(--yellow);
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+.add-to-cart {
+  background-color: var(--charcoal);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* This class is toggled by JavaScript */
+.add-to-cart.selected {
+  background-color: var(--terracotta);
+}
     margin-top: 1em;
 }
