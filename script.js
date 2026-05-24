@@ -112,5 +112,21 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 
 document.getElementById('close-cart').addEventListener('click', () => toggleCartSidebar(false));
 document.getElementById('checkout-btn').addEventListener('click', proceedToPayment);
+// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all buttons with the add-to-cart class
+    const buttons = document.querySelectorAll('.add-to-cart');
+
+    // Loop through each button and add the interaction
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            // Toggle the 'selected' class
+            button.classList.toggle('selected');
+            
+            // Optional: Provide visual feedback or sound trigger placeholder
+            console.log("Button clicked and state toggled.");
+        });
+    });
+});
 document.getElementById('close-checkout').addEventListener('click', closeCheckoutModal);
 document.getElementById('final-place-order-btn').addEventListener('click', handleFinalPlaceOrder);
