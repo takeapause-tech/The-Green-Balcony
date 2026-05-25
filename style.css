@@ -246,7 +246,73 @@ nav a {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+/* Menu Layout Container */
+.menu-container {
+  padding: 20px;
+  max-width: 600px; /* Perfect for mobile screens */
+  margin: 0 auto;
+}
 
+/* Individual Item Card */
+.menu-card {
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02); /* Ultra-subtle shadow for depth */
+}
+
+/* Image Section */
+.menu-image img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+/* Text & Button Details Section */
+.menu-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  flex-grow: 1;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.price {
+  font-weight: bold;
+  color: var(--charcoal);
+}
+
+.description {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 5px 0 10px 0;
+}
+
+/* Default Button Style (Charcoal Theme) */
+.add-to-cart-btn {
+  background-color: var(--charcoal);
+  color: var(--yellow);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease; /* Smooth color transition */
+  align-self: flex-end;
+}
 /* This class is toggled by JavaScript */
 .add-to-cart.selected {
   background-color: var(--terracotta);
