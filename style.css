@@ -317,5 +317,40 @@ nav a {
 .add-to-cart.selected {
   background-color: var(--terracotta);
 }
+  /* Daily Quote Styling */
+.daily-quote-container {
+  background-color: #f7f3ed; /* Slightly darker warm tint to separate it from the main background */
+  border-left: 4px solid var(--terracotta); /* Subtle pop of your accent color */
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  border-radius: 0 12px 12px 0;
+  text-align: left;
+}
+
+.quote-tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--terracotta);
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+#daily-quote {
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--charcoal);
+  margin: 0 0 8px 0;
+}
+
+#quote-author {
+  font-size: 0.85rem;
+  color: #666;
+  display: block;
+  font-weight: 500;
+}
     margin-top: 1em;
 }
