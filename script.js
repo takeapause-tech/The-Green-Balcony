@@ -130,3 +130,57 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 document.getElementById('close-checkout').addEventListener('click', closeCheckoutModal);
 document.getElementById('final-place-order-btn').addEventListener('click', handleFinalPlaceOrder);
+// A curated array of mindfulness, nature, and present-moment quotes
+const mindfulQuotes = [
+  {
+    text: "Nature does not hurry, yet everything is accomplished.",
+    author: "— Lao Tzu"
+  },
+  {
+    text: "Look deep into nature, and then you will understand everything better.",
+    author: "— Albert Einstein"
+  },
+  {
+    text: "The present moment is filled with joy and happiness. If you are attentive, you will see it.",
+    author: "— Thich Nhat Hanh"
+  },
+  {
+    text: "Adopt the pace of nature: her secret is patience.",
+    author: "— Ralph Waldo Emerson"
+  },
+  {
+    text: "Be here now. Be into some place else later. Is that so difficult?",
+    author: "— Ram Dass"
+  },
+  {
+    text: "To walk in nature is to witness a thousand miracles.",
+    author: "— Mary Davis"
+  },
+  {
+    text: "Life is available only in the present. That is why we should walk in such a way that every step brings us to the here and now.",
+    author: "— Thich Nhat Hanh"
+  }
+];
+
+function displayDailyQuote() {
+  const now = new Date();
+  
+  // Calculate a reliable index based on the day of the year
+  const start = new Date(now.getFullYear(), 0, 0);
+  const diff = now - start;
+  const oneDay = 1000 * 60 * 60 * 24;
+  const dayOfYear = Math.floor(diff / oneDay);
+  
+  // Use modulus to cycle through quotes evenly regardless of how many you add
+  const quoteIndex = dayOfYear % mindfulQuotes.length;
+  const todaysQuote = mindfulQuotes[quoteIndex];
+  
+  // Inject into the HTML elements safely
+  document.getElementById("daily-quote").textContent = `"${todaysQuote.text}"`;
+  document.getElementById("quote-author").textContent = todaysQuote.author;
+}
+
+// Run the script when the page finishes loading
+document.addEventListener("DOMContentLoaded", () => {
+  displayDailyQuote();
+});
