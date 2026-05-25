@@ -184,3 +184,32 @@ function displayDailyQuote() {
 document.addEventListener("DOMContentLoaded", () => {
   displayDailyQuote();
 });
+// Function to manage button selections
+function setupMenuInteractions() {
+  // 1. Select every single item button on the menu
+  const menuButtons = document.querySelectorAll('.add-to-cart-btn');
+
+  // 2. Loop through each button individually
+  menuButtons.forEach(button => {
+    
+    // 3. Listen for a tap/click event
+    button.addEventListener('click', () => {
+      // Toggle the 'selected' class on or off
+      button.classList.toggle('selected');
+      
+      // Update the button text dynamically based on its state
+      if (button.classList.contains('selected')) {
+        button.textContent = 'Added ✓';
+      } else {
+        button.textContent = 'Add to Cart';
+      }
+    });
+    
+  });
+}
+
+// Update your main loading engine to execute both scripts
+document.addEventListener("DOMContentLoaded", () => {
+  displayDailyQuote();       // Runs your nature quotes engine
+  setupMenuInteractions();   // Runs your responsive button engine
+});
