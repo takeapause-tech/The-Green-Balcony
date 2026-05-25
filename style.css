@@ -352,5 +352,10 @@ nav a {
   display: block;
   font-weight: 500;
 }
+  /* Selected Button State (Terracotta Accent) */
+.add-to-cart-btn.selected {
+  background-color: var(--terracotta);
+  color: #ffffff; /* White text for higher contrast against terracotta */
+}
     margin-top: 1em;
 }
