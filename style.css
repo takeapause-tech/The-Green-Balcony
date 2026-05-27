@@ -531,4 +531,26 @@ nav a {
   font-weight: bold;
   cursor: pointer;
   }
+  /* --- Tablet Responsive Layout System --- */
+@media (min-width: 768px) {
   
+  /* Expand max container space to accommodate multi-columns */
+  .menu-container {
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Splits layout cleanly into 2 columns */
+    gap: 20px; /* Uniform spacing between adjacent cards */
+    padding: 40px;
+  }
+
+  /* Adjust margins since spacing is now handled perfectly by the layout grid */
+  .menu-card {
+    margin-bottom: 0;
+  }
+
+  /* Make the floating action bar blend neatly into wider viewpoints */
+  .summary-content {
+    max-width: 900px;
+  }
+}
+
