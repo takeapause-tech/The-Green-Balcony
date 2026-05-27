@@ -421,4 +421,114 @@ nav a {
 .checkout-now-btn:hover {
   opacity: 0.9;
 }
+/* Modal Wrapper Hidden State */
+.modal-hidden {
+  display: none;
+}
 
+/* Modal Wrapper Visible State */
+.modal-visible {
+  display: block;
+}
+
+/* Dimmed background overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px); /* Modern subtle blur effect */
+  z-index: 1100;
+}
+
+/* Centered Content Card */
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fdfaf6; /* Matches your off-white page background */
+  width: 90%;
+  max-width: 450px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  z-index: 1200;
+  overflow: hidden;
+  animation: modalFadeIn 0.25s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translate(-50%, -45%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.modal-header {
+  background-color: var(--charcoal);
+  color: var(--yellow);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: var(--yellow);
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* Receipt Items */
+.receipt-list {
+  padding: 20px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.receipt-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed #e2ded9; /* Aesthetic dashed receipt line */
+  color: var(--charcoal);
+  font-size: 0.95rem;
+}
+
+/* Footer & Action Button */
+.modal-footer {
+  padding: 20px;
+  background-color: #f7f3ed;
+  border-top: 1px solid #e2ded9;
+}
+
+.modal-total-line {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--charcoal);
+  margin-bottom: 15px;
+}
+
+.confirm-pay-btn {
+  width: 100%;
+  background-color: var(--terracotta);
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  }
+  
