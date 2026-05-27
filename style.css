@@ -359,3 +359,66 @@ nav a {
 }
     margin-top: 1em;
 }
+/* Floating Cart Bar Container */
+#cart-summary-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--charcoal);
+  color: var(--yellow);
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  padding: 15px 0;
+}
+
+/* Toggle visibility classes */
+.cart-summary-hidden {
+  transform: translateY(100%); /* Hides it off-screen */
+}
+
+.cart-summary-visible {
+  transform: translateY(0); /* Slides it smoothly up into view */
+}
+
+.summary-content {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.summary-text {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.divider {
+  margin: 0 8px;
+  color: rgba(255, 255, 0, 0.3);
+}
+
+#cart-total {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Terracotta Checkout Button */
+.checkout-now-btn {
+  background-color: var(--terracotta);
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.checkout-now-btn:hover {
+  opacity: 0.9;
+}
+
