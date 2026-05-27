@@ -212,6 +212,42 @@ function setupMenuInteractions() {
 document.addEventListener("DOMContentLoaded", () => {
   displayDailyQuote();       // Runs your nature quotes engine
   setupMenuInteractions();   // Runs your responsive button engine
+      // --- Modal DOM Elements ---
+  const reviewModal = document.getElementById('review-modal');
+  const checkoutBtn = document.getElementById('checkout-btn');
+  const closeModalBtn = document.getElementById('close-modal-btn');
+  const receiptListEl = document.getElementById('modal-receipt-list');
+  const modalGrandTotalEl = document.getElementById('modal-grand-total');
+
+  // Open Modal & Generate Receipt List on Click
+  checkoutBtn.addEventListener('click', () => {
+    // Clear previous receipt views
+    receiptListEl.innerHTML = '';
+    
+    // Loop through current cart array and build individual receipt line items
+    customerCart.forEach(item => {
+      const itemRow = document.createElement('div');
+      itemRow.className = 'receipt-item';
+      itemRow.innerHTML = `
+        <span>${item.name}</span>
+        <span>₹${item.price}</span>
+      `;
+      receiptListEl.appendChild(itemRow);
+    });
+
+    // Calculate total for the modal view
+    const grandTotal = customerCart.reduce((sum, item) => sum + item.price, 0);
+    modalGrandTotalEl.textContent = `₹${grandTotal}`;
+
+    // Show the modal view layout
+    reviewModal.className = 'modal-visible';
+  });
+
+  // Close Modal View Function
+  closeModalBtn.addEventListener('click', () => {
+    reviewModal.className = 'modal-hidden';
+  });
+        
 });
 // State tracking variable for your items
 let customerCart = [];
