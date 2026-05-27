@@ -213,3 +213,58 @@ document.addEventListener("DOMContentLoaded", () => {
   displayDailyQuote();       // Runs your nature quotes engine
   setupMenuInteractions();   // Runs your responsive button engine
 });
+// State tracking variable for your items
+let customerCart = [];
+
+function setupMenuInteractions() {
+  const menuButtons = document.querySelectorAll('.add-to-cart-btn');
+  const summaryBar = document.getElementById('cart-summary-bar');
+  const cartCountEl = document.getElementById('cart-count');
+  const cartTotalEl = document.getElementById('cart-total');
+
+  menuButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Find the parent item card to extract pricing details dynamically
+      const menuCard = button.closest('.menu-card');
+      const itemName = menuCard.querySelector('h3').textContent;
+      
+      // Extract numbers only from price string (e.g., "₹350" -> 350)
+      const itemPrice = parseInt(menuCard.querySelector('.price').textContent.replace(/[^0-9]/g, ''));
+
+      button.classList.toggle('selected');
+
+      if (button.classList.contains('selected')) {
+        button.textContent = 'Added ✓';
+        // Add item to our virtual array tracking list
+        customerCart.push({ name: itemName, price: itemPrice });
+      } else {
+        button.textContent = 'Add to Cart';
+        // Remove item if they deselect it
+        customerCart = customerCart.filter(item => item.name !== itemName);
+      }
+
+      // Calculate new cumulative totals
+      updateCartSummary(summaryBar, cartCountEl, cartTotalEl);
+    });
+  });
+}
+
+function updateCartSummary(bar, countEl, totalEl) {
+  const totalItems = customerCart.length;
+  
+  if (totalItems > 0) {
+    // Calculate total price using an analytical accumulator loop
+    const totalPrice = customerCart.reduce((sum, item) => sum + item.price, 0);
+    
+    // Update the visual text indicators
+    countEl.textContent = `${totalItems} ${totalItems === 1 ? 'Item' : 'Items'}`;
+    totalEl.textContent = `₹${totalPrice}`;
+    
+    // Reveal the floating summary drawer smoothly
+    bar.className = 'cart-summary-visible';
+  } else {
+    // Hide the drawer completely if no items are selected
+    bar.className = 'cart-summary-hidden';
+  }
+        }
+
