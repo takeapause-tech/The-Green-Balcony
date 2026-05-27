@@ -212,6 +212,27 @@ function setupMenuInteractions() {
 document.addEventListener("DOMContentLoaded", () => {
   displayDailyQuote();       // Runs your nature quotes engine
   setupMenuInteractions();   // Runs your responsive button engine
+      // --- Payment Button Logic ---
+  const placeOrderBtn = document.getElementById('place-order-btn');
+
+  placeOrderBtn.addEventListener('click', () => {
+    // 1. Simulate secure order transmission to your kitchen tablet
+    alert('✨ Order Placed Successfully! Your items are printing in the kitchen. Sit tight, we will text you when it’s ready.');
+
+    // 2. Clear out the global data array tracking system
+    customerCart = [];
+
+    // 3. Reset all visual UI elements back to standard state
+    menuButtons.forEach(button => {
+      button.classList.remove('selected');
+      button.textContent = 'Add to Cart';
+    });
+
+    // 4. Hide both the active receipt modal and the bottom floating bar
+    reviewModal.className = 'modal-hidden';
+    summaryBar.className = 'cart-summary-hidden';
+  });
+    
       // --- Modal DOM Elements ---
   const reviewModal = document.getElementById('review-modal');
   const checkoutBtn = document.getElementById('checkout-btn');
